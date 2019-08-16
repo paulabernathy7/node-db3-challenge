@@ -3,7 +3,7 @@ const db = require("../data/db-config");
 module.exports = {
   find,
   findById,
-  //   findSteps
+  findSteps,
   add,
   update,
   remove
@@ -19,12 +19,11 @@ function findById(id) {
     .first();
 }
 
-// function findSteps(id){
-
-//     return db('steps')
-//     .join('schemes','steps.scheme_id','schemes.id')
-//     .where('steps.scheme_id' , '=' , id)
-// }
+function findSteps(scheme_id) {
+  return db("steps")
+    .join("schemes")
+    .where({ scheme_id });
+}
 
 //must destructure array ID
 
